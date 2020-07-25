@@ -1,0 +1,32 @@
+<mat-toolbar class="container">
+  <span>My App</span>
+  <ul *ngIf="!isLogged">
+    <li>
+      <a routerLink="/home" routerLinkActive="active">{{ routes.publicRoutes.home | titlecase }}</a>
+    </li>
+    <li>
+      <a routerLink="/login" routerLinkActive="active">{{ routes.publicRoutes.login | titlecase }}</a>
+    </li>
+    <li>
+      <a routerLink="/about" routerLinkActive="active">{{ routes.publicRoutes.about | titlecase }}</a>
+    </li>
+  </ul>
+  <ul *ngIf="isLogged">
+    <!-- Private routes -->
+    <li>
+      <a routerLink="/dashboard" routerLinkActive="active">{{ routes.privateRoutes.dashboard | titlecase }}</a>
+    </li>
+    <li>
+      <a routerLink="/gallery" routerLinkActive="active">{{ routes.privateRoutes.gallery | titlecase }}</a>
+    </li>
+    <li>
+      <a routerLink="/profile" routerLinkActive="active">{{ routes.privateRoutes.profile | titlecase }}</a>
+    </li>
+    <li>
+      <h3>Hola, {{ username }}</h3>
+    </li>
+    <li>
+      <button type="button" mat-stroked-button color="basic" (click)="logout()">LOGOUT</button>
+    </li>
+  </ul>
+</mat-toolbar>
